@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.content.ContentProvider"/>
+<fullyQualifiedTypeName name="com.example.thothv2.NewsProvider"/>
+<fullyQualifiedTypeName name="com.example.thothv2.ClassesProvider"/>
+<fullyQualifiedTypeName name="android.database.sqlite.SQLiteDatabase"/>
+<fullyQualifiedTypeName name="com.example.thothv2.R.layout"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.menu"/>
+<fullyQualifiedTypeName name="com.example.thothv2.R"/>
+<fullyQualifiedTypeName name="android.view.MenuItem"/>
+<fullyQualifiedTypeName name="android.view.Menu"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="com.example.thothv2.R.id"/>
+<fullyQualifiedTypeName name="com.example.thothv2.thothnews.ThothNewsMainActivity"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.example.thothv2.thothcontacts.ContactsMainActivity"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="android.content.ContentResolver"/>
+<fullyQualifiedTypeName name="android.net.Uri"/>
+<fullyQualifiedTypeName name="android.content.ContentValues"/>
+<fullyQualifiedTypeName name="com.example.thothv2.MainActivity"/>
+<fullyQualifiedTypeName name="com.example.thothv2.provider.ClassesProvider"/>
+</qualifiedTypeNameHistroy>

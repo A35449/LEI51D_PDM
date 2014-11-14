@@ -1,0 +1,26 @@
+package com.example.thothv2.provider;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+class SQLRunner extends SQLiteOpenHelper{
+
+	private static final String TAG = "CONTENT_PROVIDER";
+
+	public SQLRunner(Context context) {
+		super(context, "thothDb.db", null, 1);		
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		db.execSQL("create table classes (_id integer primary key, _selected integer, desc name)"); // _selected representa um boolean
+		db.execSQL("create table news (_id integer primary key, _class integer, _read integer, foreign key(_class) references classes(_id)");
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Auto-generated method stub
+	}
+}
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.thothv2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="21" />
+    
+    <permission-group
+               android:label="string resource"
+               android:name="com.example.thothv2.GROUP" />
+   
+    
+    <permission 
+                android:name="com.example.thothv2.ACCESS"
+                android:permissionGroup="com.example.thothv2.GROUP"
+                android:protectionLevel="normal"
+                />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.thothv2.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+         <activity android:name="com.example.thothv2.thothnews.NewsActivity"></activity>
+        <activity android:name="com.example.thothv2.thothnews.Settings_Activity"></activity>
+        <activity android:name="com.example.thothv2.thothnews.SingleNewActivity"></activity>
+        <activity android:name="com.example.thothv2.thothnews.ThothNewsMainActivity"></activity>
+         <activity android:name="com.example.thothv2.thothcontacts.ContactsMainActivity"></activity>
+        
+	    <provider
+	    android:name="com.example.thothv2.provider.ThothProvider"
+	    android:authorities="com.example.thothv2"
+	    android:exported="true"
+	    android:permission="com.example.thothv2.ACCESS"
+	    >
+	    </provider>
+    
+    </application>
+   
+</manifest>

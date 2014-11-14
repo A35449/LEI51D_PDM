@@ -1,0 +1,44 @@
+package com.example.thothv2;
+
+import android.content.ContentProvider;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+
+public abstract class ThothProviderAbstract extends ContentProvider {
+	
+	public static final String AUTHORITY = "com.example.thothv2";	
+
+	
+
+	private SQLRunner _sql;
+	protected static UriMatcher _urimatcher;
+
+
+	
+	@Override
+	public boolean onCreate() {
+		 _sql = new SQLRunner(getContext());
+		return false;
+	}
+
+	@Override
+	public abstract Cursor query(Uri uri, String[] projection, String selection,
+			String[] selectionArgs, String sortOrder);
+
+	@Override
+	public abstract String getType(Uri uri);
+
+	@Override
+	public abstract Uri insert(Uri uri, ContentValues values);
+
+	@Override
+	public abstract int delete(Uri uri, String selection, String[] selectionArgs);
+
+	@Override
+	public abstract int update(Uri uri, ContentValues values, String selection,
+			String[] selectionArgs);
+}

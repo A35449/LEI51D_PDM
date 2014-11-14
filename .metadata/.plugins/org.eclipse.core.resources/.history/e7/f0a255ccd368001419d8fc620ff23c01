@@ -1,0 +1,95 @@
+package com.example.thothv2;
+
+import android.content.ContentProvider;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+
+public class ThothProvider extends ContentProvider {
+	
+	public static final String AUTHORITY = "com.example.thothv2";	
+	private final static int CLASSES = 1;
+	private final static int SELECTED = 2;
+	private final static int NEWS = 3;
+	private final static int ROOT_CLASSES = 0;
+	private final static int ROOT_NEWS  = 10;
+
+	private SQLRunner _sql;
+	private static UriMatcher _urimatcherclasses;
+	private static UriMatcher _urimatchernews;
+	
+	static {
+		_urimatcherclasses = new UriMatcher(ROOT_CLASSES);
+		_urimatcherclasses.addURI(AUTHORITY, "classes", CLASSES);
+		_urimatcherclasses.addURI(AUTHORITY, "classes/selected", SELECTED);
+		
+		_urimatchernews = new UriMatcher(ROOT_NEWS);
+		_urimatchernews.addURI(AUTHORITY,"news",NEWS);
+	}
+
+	
+	@Override
+	public boolean onCreate() {
+		 _sql = new SQLRunner(getContext());
+		return false;
+	}
+
+	@Override
+	public Cursor query(Uri uri, String[] projection, String selection,
+			String[] selectionArgs, String sortOrder) {
+		SQLiteDatabase db = _sql.getReadableDatabase();
+		Cursor c = null;
+		
+		switch(_urimatcherclasses.match(uri)){
+		
+		case CLASSES:
+			c = db.query("thothDb", projection, 
+					selection, selectionArgs, 
+					null, null, sortOrder);
+			return c;
+		case SELECTED:
+			c = db.query("thothDb", projection, 
+					"_selected = 1", null, 
+					null, null, sortOrder);
+			return c;
+			
+		case NEWS:
+			c = db.query("thothDb", projection, 
+					selection, selectionArgs, 
+					null, null, sortOrder);
+			return c;
+			
+			
+		default: return null;
+			
+		}
+	}
+
+	@Override
+	public String getType(Uri uri) {
+		
+		return null;
+	}
+
+	@Override
+	public Uri insert(Uri uri, ContentValues values) {
+		
+		return null;
+	}
+
+	@Override
+	public int delete(Uri uri, String selection, String[] selectionArgs) {
+		
+		return 0;
+	}
+
+	@Override
+	public int update(Uri uri, ContentValues values, String selection,
+			String[] selectionArgs) {
+		
+		return 0;
+	}
+}
