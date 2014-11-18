@@ -7,18 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
-public class ClassesProvider extends ThothProviderAbstract {
-	
-	public final static int CLASSES = 1;
-	public final static int SELECTED = 2;
-	public final static int NEWS = 3;
-	public final static int ROOT_CLASSES = 0;
-	
-	static {
-		_urimatcher = new UriMatcher(ROOT_CLASSES);
-		_urimatcher.addURI(AUTHORITY, "classes", CLASSES);
-		_urimatcher.addURI(AUTHORITY, "classes/selected", SELECTED);
-	}
+public class ClassesProvider extends ThothProvider {
 	
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
@@ -64,7 +53,7 @@ public class ClassesProvider extends ThothProviderAbstract {
 	public int delete(Uri uri, String whereClause, String[] whereArgs) {
 		SQLiteDatabase db =  _sql.getWritableDatabase();
 		
-		return db.delete(uri.toString(), whereClause, whereArgs);
+		return db.delete(uri.getLastPathSegment(), whereClause, whereArgs);
 	}
 
 	@Override
@@ -76,8 +65,7 @@ public class ClassesProvider extends ThothProviderAbstract {
 
 	@Override
 	public boolean onCreate() {
-		if(_sql != null) _sql.close();
-		_sql = new SQLRunner(getContext());
+		// TODO Auto-generated method stub
 		return true;
 	}
 

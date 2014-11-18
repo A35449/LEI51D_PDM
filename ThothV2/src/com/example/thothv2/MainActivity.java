@@ -4,19 +4,21 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.thothv2.provider.ClassesProvider;
 import com.example.thothv2.thothnews.ThothNewsMainActivity;
 import com.example.thothv2.thothcontacts.ContactsMainActivity;
 
 public class MainActivity extends Activity {
-	Button thoth,contact,add,del;
+	Button thoth,contact,add,del,query;
 	Intent ti,ci;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,7 @@ public class MainActivity extends Activity {
         contact = (Button)findViewById(R.id.contact_button);
         add = (Button)findViewById(R.id.add_button);
         del = (Button)findViewById(R.id.delete_button);
-       
+        query = (Button)findViewById(R.id.query_button);
         
         thoth.setOnClickListener(new View.OnClickListener() {
         	
@@ -71,10 +73,28 @@ public class MainActivity extends Activity {
 				Uri class_uri = Uri.parse("content://com.example.thothv2/classes");
 				
 				ContentResolver cr = getContentResolver();
-				//ClassesProvider cp = new ClassesProvider();
-				cr.delete(class_uri, "_id = ?", new String[] {"1"});
+				cr.delete(class_uri, "_id =?", new String[] {"1"});
+				//cr.delete(class_uri, null,null);
 			}
 		});
+        
+        query.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Uri class_uri = Uri.parse("content://com.example.thothv2/classes");
+				
+				ContentResolver cr = getContentResolver();
+				Cursor c = cr.query(class_uri, null, "_id = ?", new String[] {"2"}, null);
+				c.moveToFirst();
+				int idx = c.getColumnIndex("name");
+				String s = c.getString(idx);
+				Toast t = new Toast(getBaseContext()).makeText(getBaseContext(), s, Toast.LENGTH_LONG);
+				t.show();
+			}
+		});
+        
+        
     }
 
 

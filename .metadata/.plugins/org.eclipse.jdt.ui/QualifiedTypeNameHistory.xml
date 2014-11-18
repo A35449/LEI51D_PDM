@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.content.ContentProvider"/>
 <fullyQualifiedTypeName name="com.example.thothv2.NewsProvider"/>
 <fullyQualifiedTypeName name="com.example.thothv2.ClassesProvider"/>
 <fullyQualifiedTypeName name="android.database.sqlite.SQLiteDatabase"/>
@@ -23,4 +22,9 @@
 <fullyQualifiedTypeName name="android.content.ContentValues"/>
 <fullyQualifiedTypeName name="com.example.thothv2.MainActivity"/>
 <fullyQualifiedTypeName name="com.example.thothv2.provider.ClassesProvider"/>
+<fullyQualifiedTypeName name="android.database.Cursor"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="com.example.thothv2.provider.ThothProvider"/>
+<fullyQualifiedTypeName name="com.example.thothv2.provider.ProviderContract"/>
+<fullyQualifiedTypeName name="android.content.ContentProvider"/>
 </qualifiedTypeNameHistroy>

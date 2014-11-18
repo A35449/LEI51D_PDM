@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
-public class NewsProvider extends ThothProviderAbstract{
+public class NewsProvider extends ThothProvider{
 
 	public final static int ROOT_NEWS  = 10;
 	public final static int NEWS = 11;
@@ -67,8 +67,7 @@ public class NewsProvider extends ThothProviderAbstract{
 	
 	@Override
 	public boolean onCreate() {
-		_sql = new SQLRunner(getContext());
-		return false;
+		return true;
 	}
 
 }

@@ -1,0 +1,20 @@
+package com.example.thothv2.provider;
+
+
+import android.content.ContentProvider;
+import android.content.ContentValues;
+import android.content.UriMatcher;
+import android.database.Cursor;
+import android.net.Uri;
+
+public abstract class ProviderContract extends ContentProvider {
+	
+	public static final String AUTHORITY = "com.example.thothv2";
+	
+	public static SQLRunner _sql;
+	
+	public final static int ROOT = 0;
+	public final static int CLASSES = 1;
+	public final static int SELECTED = 2;
+	public final static int NEWS = 3;
+}
